@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1772307256994",
+    "name": "Naina",
+    "email": "dhwanipachchigar2@gmail.com",
+    "password": "$2b$10$IduDdAK7z3tsOxd1Rt3GtOYnDBsJIyTE45YZPfqKisSYgrDt9hPja",
+    "role": "customer"
+  },
+  {
+    "id": "1772309875137",
+    "name": "Dhwani Pachchigar",
+    "email": "dhwanip1329@gmail.com",
+    "password": "$2b$10$agNVQdiNiP2Tc12bFqnt5OUjt44ABUEvroaVbNjBF7llPfoyXnWwq",
+    "role": "artist"
+  }
+]

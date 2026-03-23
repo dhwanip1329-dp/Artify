@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cart - ARTIFY</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">ARTIFY</div>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+
+    <a href="upload.html" id="uploadLink">Upload</a>
+
+    <a href="cart.html" class="cart-link">
+      🛒 Cart (<span id="cartCount">0</span>)
+    </a>
+
+    <a href="register.html" id="registerLink">Register</a>
+    <a href="login.html" id="loginLink">Login</a>
+    <a href="#" id="logoutLink" onclick="logout()">Logout</a>
+  </div>
+</nav>
+
+<section class="cart-section">
+  <h2>Your Cart</h2>
+
+  <div id="cartItems"></div>
+
+  <div class="cart-total">
+ <h3>Total: <span id="cartTotal">$ 0</span></h3>
+
+    <button onclick="goToCheckout()" class="hero-btn">
+      Proceed to Checkout
+    </button>
+
+  </div>
+</section>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
+
+

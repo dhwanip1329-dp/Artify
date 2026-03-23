@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register - ARTIFY</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+     <nav class="navbar">
+  <div class="logo">ARTIFY</div>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+
+    <a href="upload.html" id="uploadLink">Upload</a>
+
+    <a href="cart.html" class="cart-link">
+      🛒 Cart (<span id="cartCount">0</span>)
+    </a>
+
+    <a href="register.html" id="registerLink">Register</a>
+    <a href="login.html" id="loginLink">Login</a>
+    <a href="#" id="logoutLink" onclick="logout()">Logout</a>
+  </div>
+</nav>
+
+
+  <div class="form-container">
+    <h2>Register</h2>
+
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+
+    <select id="role">
+      <option value="customer">Customer</option>
+      <option value="artist">Artist</option>
+    </select>
+
+    <button onclick="registerUser()">Register</button>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+
+

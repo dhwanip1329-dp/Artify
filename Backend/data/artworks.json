@@ -1,0 +1,83 @@
+[
+  {
+    "id": "1772305656241",
+    "title": "Cotton Tail",
+    "description": "A celestial-inspired composition where a floating figure drifts through swirling clouds and vibrant forms, blending fantasy with fluid motion.",
+    "price": 100,
+    "category": "Abstract",
+    "image": "/uploads/1772305656203.jpg",
+   "artistId": "1772309875137"
+  },
+  {
+    "id": "1772305711262",
+    "title": "Rhythm of Contrast",
+    "description": "Bold strokes of yellow and deep violet collide across textured layers, creating a dynamic play of movement and modern abstraction.",
+    "price": 90,
+    "category": "Abstract",
+    "image": "/uploads/1772305711261.jpg",
+    "artistId": "1772309875137"
+  },
+  {
+    "id": "1772305761179",
+    "title": "Fragmented Persona",
+    "description": "A stylized face built from sharp geometric shapes and soft pastel tones, reflecting identity through playful abstraction.",
+    "price": 96,
+    "category": "Digital",
+    "image": "/uploads/1772305761177.jpg",
+    "artistId": "1772309875137"
+  },
+  {
+    "id": "1772305816953",
+    "title": "Beyond the Surface",
+    "description": "A hidden landscape revealed through a torn wall, symbolizing escape, curiosity, and the journey into the unknown.",
+    "price": 83,
+    "category": "Landscape",
+    "image": "/uploads/1772305816950.jpg",
+   "artistId": "1772309875137"
+  },
+  {
+    "id": "1772305852294",
+    "title": "Fragments of Silence",
+    "description": "An expressive portrait where melting colors and ink drips reveal emotion, vulnerability, and inner chaos.",
+    "price": 91,
+    "category": "Painting",
+    "image": "/uploads/1772305852286.jpg",
+   "artistId": "1772309875137"
+  },
+  {
+    "id": "1772305917861",
+    "title": "Sailing Within",
+    "description": "A mesmerizing macro shot of an eye reflecting a lone sailboat, symbolizing dreams navigating the depths of the soul.",
+    "price": 89,
+    "category": "Photography",
+    "image": "/uploads/1772305917858.jpg",
+    "artistId": "1772309875137"
+  },
+  {
+    "id": "1772305964734",
+    "title": "Veil of Thoughts",
+    "description": "A haunting portrait wrapped in swirling smoke, capturing mystery, emotion, and the fragile boundary between clarity and chaos.",
+    "price": 98,
+    "category": "Portrait",
+    "image": "/uploads/1772305964731.webp",
+    "artistId": "1772309875137"
+  },
+  {
+    "id": "1772306001893",
+    "title": "Quiet Offering",
+    "description": "A soft, melancholic portrait holding a single rose, blending modern pop style with subtle emotional depth.",
+    "price": 94,
+    "category": "Portrait",
+    "image": "/uploads/1772306001891.jpg",
+    "artistId": "1772309875137"
+  },
+  {
+    "id": "1772306154945",
+    "title": "Hanging by Time",
+    "description": "A surreal composition of a man suspended from a melting clock, symbolizing the fragile grip we hold on time and the illusion of control over fleeting moments.",
+    "price": 86,
+    "category": "Landscape",
+    "image": "/uploads/1772306154942.jpg",
+    "artistId": "1772309875137"
+  }
+]

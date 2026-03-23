@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Artwork - ARTIFY</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">ARTIFY</div>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+
+    <a href="upload.html" id="uploadLink">Upload</a>
+
+    <a href="cart.html" class="cart-link">
+      🛒 Cart (<span id="cartCount">0</span>)
+    </a>
+
+    <a href="register.html" id="registerLink">Register</a>
+    <a href="login.html" id="loginLink">Login</a>
+    <a href="#" id="logoutLink" onclick="logout()">Logout</a>
+  </div>
+</nav>
+
+<div class="form-container">
+  <h2>Upload Artwork</h2>
+
+  <input type="text" id="title" placeholder="Title" required>
+
+  <textarea id="description" placeholder="Description" required></textarea>
+
+  <input type="number" id="price" name="price" placeholder="Enter price" required>
+
+   <!-- ADD IMAGE INPUT HERE -->
+  <input type="file" id="image" accept="image/*" required>
+
+  <select id="category" required>
+    <option value="">Select Category</option>
+    <option value="Painting">Painting</option>
+    <option value="Digital">Digital</option>
+    <option value="Photography">Photography</option>
+    <option value="Abstract">Abstract</option>
+    <option value="Portrait">Portrait</option>
+    <option value="Landscape">Landscape</option>
+  </select>
+
+  <button class="upload-btn" onclick="uploadArtwork()">
+    Upload Artwork
+  </button>
+</div>
+
+
+<script src="js/main.js"></script>
+</body>
+</html>
+
+
+

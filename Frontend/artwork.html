@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Artwork Details - ARTIFY</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="logo">ARTIFY</div>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+
+    <a href="upload.html" id="uploadLink">Upload</a>
+
+    <a href="cart.html" class="cart-link">
+      🛒 Cart (<span id="cartCount">0</span>)
+    </a>
+
+    <a href="register.html" id="registerLink">Register</a>
+    <a href="login.html" id="loginLink">Login</a>
+    <a href="#" id="logoutLink" onclick="logout()">Logout</a>
+  </div>
+</nav>
+<div class="artwork-detail">
+  <img id="artImage" class="art-detail-image" />
+
+  <h2 id="artTitle"></h2>
+  <p id="artDesc"></p>
+  <p id="artCategory"></p>
+  <h3 id="artPrice"></h3>
+
+  <button id="addToCartBtn">Add to Cart 🛒</button>
+<button id="buyNowBtn">Buy Now ⚡</button>
+
+  <button id="updateBtn">Update</button>
+  <button id="deleteBtn">Delete</button>
+</div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+
+
+

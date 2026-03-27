@@ -1,0 +1,44 @@
+name: Deploy to EKS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ap-south-1
+
+    - name: Login to ECR
+      run: |
+        aws ecr get-login-password --region ap-south-1 | \
+        docker login --username AWS --password-stdin 660035875440.dkr.ecr.ap-south-1.amazonaws.com
+
+    - name: Build & Push Frontend
+      run: |
+        docker build -t artify-frontend ./Frontend
+        docker tag artify-frontend:latest 660035875440.dkr.ecr.ap-south-1.amazonaws.com/artify-frontend:latest
+        docker push 660035875440.dkr.ecr.ap-south-1.amazonaws.com/artify-frontend:latest
+
+    - name: Build & Push Backend
+      run: |
+        docker build -t artify-backend ./Backend
+        docker tag artify-backend:latest 660035875440.dkr.ecr.ap-south-1.amazonaws.com/artify-backend:latest
+        docker push 660035875440.dkr.ecr.ap-south-1.amazonaws.com/artify-backend:latest
+
+    - name: Deploy to EKS
+      run: |
+        aws eks update-kubeconfig --name artify-cluster --region ap-south-1
+        kubectl rollout restart deployment artify-frontend
+        kubectl rollout restart deployment artify-backend

@@ -15,7 +15,7 @@ spec:
       serviceAccountName: artify-sa   # 🔥 IMPORTANT (IAM role connection)
       containers:
         - name: backend
-          image: artify-backend:latest
-          imagePullPolicy: Never
+          image: 660035875440.dkr.ecr.ap-south-1.amazonaws.com/artify-backend:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000

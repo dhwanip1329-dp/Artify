@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: artify-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      serviceAccountName: artify-sa   # 🔥 IMPORTANT (IAM role connection)
+      containers:
+        - name: backend
+          image: artify-backend:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000

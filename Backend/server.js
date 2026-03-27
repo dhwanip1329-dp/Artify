@@ -40,7 +40,7 @@ app.use("/api/orders", orderRoutes);
    ROOT CHECK ROUTE
 ================================= */
 app.get("/", (req, res) => {
-  res.send("ARTIFY Backend Running ðŸš€");
+  res.send("ARTIFY Backend Running");
 });
 
 /* ===============================

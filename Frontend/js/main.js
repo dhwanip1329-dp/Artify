@@ -1,8 +1,7 @@
 /* =========================================
    GLOBAL API CONFIG
 ========================================= */
-
-const BASE_URL = "http://a52153239067045868d2cffaaa1cb023-1688315282.ap-south-1.elb.amazonaws.com/";
+const BASE_URL = window.location.origin;
 
 const API_URL = `${BASE_URL}/api/auth`;
 const ARTWORK_URL = `${BASE_URL}/api/artworks`;
@@ -70,10 +69,10 @@ function getArtworkImageUrl(art) {
   }
 
   if (value.startsWith("/")) {
-    return `http://13.232.111.40${value}`;
+    return `${BASE_URL}${value}`;
   }
 
- return `http://13.232.111.40/${value.replace(/^\.?\//, "")}`;
+ return `${BASE_URL}/${value.replace(/^\.?\//, "")}`;
 }
 
 function getUserRole() {

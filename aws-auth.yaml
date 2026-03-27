@@ -1,0 +1,21 @@
+apiVersion: v1
+data:
+  mapRoles: |
+    - rolearn: arn:aws:iam::660035875440:role/eksctl-artify-cluster-nodegroup-ar-NodeInstanceRole-WF9og1l2Jzs8
+      groups:
+        - system:bootstrappers
+        - system:nodes
+      username: system:node:{{EC2PrivateDNSName}}
+
+  mapUsers: |
+    - userarn: arn:aws:iam::660035875440:user/intern-admin
+      username: github-user
+      groups:
+        - system:masters
+
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "45048"
+  uid: 0ff1c029-66e7-4fc4-97e6-2f1d37992160

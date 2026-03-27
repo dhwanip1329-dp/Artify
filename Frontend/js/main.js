@@ -1,7 +1,7 @@
 /* =========================================
    GLOBAL API CONFIG
 ========================================= */
-const BASE_URL = window.location.origin;
+const BASE_URL = "http://a3e1042a9f60f42d3ba565ee93ab4c4e-1039973239.ap-south-1.elb.amazonaws.com"
 
 const API_URL = `${BASE_URL}/api/auth`;
 const ARTWORK_URL = `${BASE_URL}/api/artworks`;

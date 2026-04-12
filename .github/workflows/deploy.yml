@@ -43,5 +43,5 @@ jobs:
 
       - name: Deploy to EKS
         run: |
-          kubectl rollout restart deployment artify-frontend
-          kubectl rollout restart deployment artify-backend
+          kubectl rollout restart deployment artify-frontend -n prod
+          kubectl rollout restart deployment artify-backend -n prod

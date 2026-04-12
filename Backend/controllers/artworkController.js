@@ -14,20 +14,24 @@ const {
 // GET ALL ARTWORKS
 // =======================
 exports.getAllArtworks = async (req, res) => {
+  console.log("🔥 Fetching artworks...");
+
   try {
     const result = await dynamoDB.send(
       new ScanCommand({
-        TableName: "Artworks",
+        TableName: "Artworks", // check this
       })
     );
 
+    console.log("✅ RESULT:", result);
+
     res.json(result.Items || []);
-  } catch (error) {
-    console.error("Fetch Error:", error);
-    res.status(500).json({ message: "Server error" });
+  } catch (err) {
+    console.error("❌ ERROR:", err);
+
+    res.status(500).json({ message: err.message });
   }
 };
-
 // =======================
 // CREATE ARTWORK
 // =======================

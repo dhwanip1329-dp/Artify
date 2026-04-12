@@ -1,12 +1,8 @@
 /* =========================================
    GLOBAL API CONFIG
 ========================================= */
-<<<<<<< HEAD
-const BASE_URL = "http://a3e1042a9f60f42d3ba565ee93ab4c4e-1039973239.ap-south-1.elb.amazonaws.com"
-=======
 
-const BASE_URL = "http://a3e1042a9f60f42d3ba565ee93ab4c4e-1039973239.ap-south-1.elb.amazonaws.com";
->>>>>>> f874c91 (final setup before cicd)
+const BASE_URL = "http://a13f376a7825443219323e5d8f27751b-1112760370.ap-south-1.elb.amazonaws.com";
 
 const API_URL = `${BASE_URL}/api/auth`;
 const ARTWORK_URL = `${BASE_URL}/api/artworks`;

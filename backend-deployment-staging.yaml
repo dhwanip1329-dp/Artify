@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: artify-backend
-  namespace: dev
+  namespace: staging
 spec:
   replicas: 1
   selector:

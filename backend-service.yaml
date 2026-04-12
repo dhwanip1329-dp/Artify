@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: backend-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
-    app: backend
+    app: backend   # MUST match deployment
   ports:
-    - port: 5000
+    - port: 80
       targetPort: 5000
-      nodePort: 30007

@@ -6,25 +6,21 @@ metadata:
 
 data:
   mapRoles: |
-    - rolearn: arn:aws:iam::660035875440:role/eksctl-artify-cluster-nodegroup-NodeInstanceRole-CG2c3QDfy1A3
-      username: system:node:{{EC2PrivateDNSName}}
+    - rolearn: arn:aws:iam::660035875440:role/eksctl-artify-cluster-nodegroup-ng-...
       groups:
         - system:bootstrappers
         - system:nodes
-
-    - rolearn: arn:aws:iam::660035875440:role/artify-ec2-role
-      username: github-actions
-      groups:
-        - system:masters
+      username: system:node:{{EC2PrivateDNSName}}
 
   mapUsers: |
-    - userarn: arn:aws:iam::660035875440:user/intern-admin
+    - userarn: arn:aws:iam::660035875440:user/<YOUR-IAM-USERNAME>
       username: github-user
       groups:
         - system:masters
 kind: ConfigMap
 metadata:
+  creationTimestamp: "2026-04-12T08:26:50Z"
   name: aws-auth
   namespace: kube-system
-  resourceVersion: "45048"
-  uid: 0ff1c029-66e7-4fc4-97e6-2f1d37992160
+  resourceVersion: "24730"
+  uid: 4bc3f3f2-dab8-409f-b639-9e6177c6a13f

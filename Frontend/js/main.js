@@ -15,6 +15,16 @@ function getUserRole() {
 }
 
 let allArtworks = [];
+
+fetch(ARTWORK_URL)
+  .then(res => res.json())
+  .then(data => {
+    console.log("DATA:", data); // debug
+    allArtworks = data;
+    displayArtworks(data);
+  })
+  .catch(err => console.error("ERROR:", err));
+
 const token = localStorage.getItem("token");
 
 let cart = [];

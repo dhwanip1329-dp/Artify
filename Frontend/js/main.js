@@ -2,7 +2,7 @@
    GLOBAL API CONFIG
 ========================================= */
 
-const BASE_URL = "http://a9ce3275f7d946289f13c2836ae7935-1808701851.ap-south-1.elb.amazonaws.com";
+const BASE_URL = "http://a66919e7d3a0647418388dcf9af6f7d7-388382595.ap-south-1.elb.amazonaws.com";
 
 const API_URL = `${BASE_URL}/api/auth`;
 const ARTWORK_URL = `${BASE_URL}/api/artworks`;

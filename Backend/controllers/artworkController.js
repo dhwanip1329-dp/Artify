@@ -26,17 +26,18 @@ exports.getAllArtworks = async (req, res) => {
     console.log("✅ RESULT:", result);
 
     res.json(result.Items || []);
-  } catch (err) {
-    console.error("❌ ERROR:", err);
-
-    res.status(500).json({ message: err.message });
+  } catch (error) {
+    console.error("UPLOAD ERROR:", error);
+    res.status(500).json({ message: error.message });
   }
 };
 // =======================
 // CREATE ARTWORK
 // =======================
 exports.createArtwork = async (req, res) => {
-  try {
+ console.log("BODY:", req.body); 
+ 
+ try {
     const { title, description, price, category } = req.body;
 
     let imageUrl = "";
@@ -45,7 +46,7 @@ exports.createArtwork = async (req, res) => {
       const fileContent = fs.readFileSync(req.file.path);
 
       const uploadParams = {
-        Bucket: process.env.S3_BUCKET,
+        Bucket: process.env.S3_BUCKET_NAME,
         Key: `artworks/${Date.now()}-${req.file.originalname}`,
         Body: fileContent,
         ContentType: req.file.mimetype,
@@ -53,7 +54,7 @@ exports.createArtwork = async (req, res) => {
 
       await s3.send(new PutObjectCommand(uploadParams));
 
-      imageUrl = `https://${process.env.S3_BUCKET}.s3.${process.env.AWS_REGION}.amazonaws.com/${uploadParams.Key}`;
+      imageUrl = `https://${process.env.S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/${uploadParams.Key}`;
 
       fs.unlinkSync(req.file.path);
     }
@@ -134,3 +135,4 @@ exports.updateArtwork = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+

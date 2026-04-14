@@ -9,13 +9,9 @@ const app = express();
 /* ===============================
    CORS CONFIG (IMPORTANT FOR S3)
 ================================= */
-app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use(cors({
+  origin: "*"
+}));
 
 app.options("/{*any}", cors());
 

@@ -2,7 +2,7 @@
    GLOBAL API CONFIG
 ========================================= */
 
-const BASE_URL = "http://a66919e7d3a0647418388dcf9af6f7d7-388382595.ap-south-1.elb.amazonaws.com";
+const BASE_URL = "http://aaf36e3a99fea429997d70a7e3b0bb87-636180501.ap-south-1.elb.amazonaws.com";
 
 const API_URL = `${BASE_URL}/api/auth`;
 const ARTWORK_URL = `${BASE_URL}/api/artworks`;
@@ -15,6 +15,28 @@ function getUserRole() {
 }
 
 let allArtworks = [];
+
+function displayArtworks(artworks) {
+  const container = document.getElementById("galleryGrid");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  artworks.forEach((art) => {
+    const card = document.createElement("div");
+    card.className = "art-card";
+
+    card.innerHTML = `
+      <img src="${art.image}" alt="${art.title}" />
+      <h3>${art.title}</h3>
+      <p>${art.description}</p>
+      <p>₹${art.price}</p>
+    `;
+
+    container.appendChild(card);
+  });
+}
 
 fetch(ARTWORK_URL)
   .then(res => res.json())
@@ -827,53 +849,8 @@ async function registerUser() {
   }
 }
 
-/* =========================================
-   UPLOAD ARTWORK
-========================================= */
 
-async function uploadArtwork() {
-  const token = (localStorage.getItem("token") || "").trim();
-  if (!token) {
-    alert("Please login first");
-    return;
-  }
-  if (getUserRole() !== "artist") {
-    alert("Only artists can upload artworks");
-    return;
-  }
-
-  const formData = new FormData();
-  formData.append("title", document.getElementById("title").value);
-  formData.append("description", document.getElementById("description").value);
  
-  console.log("PRICE VALUE:", document.getElementById("price").value);
-  formData.append("price", document.getElementById("price").value);
-  formData.append("category", document.getElementById("category").value);
-  formData.append("image", document.getElementById("image").files[0]);
-
-  const res = await fetch(ARTWORK_URL, {
-    method: "POST",
-    headers: {
-      Authorization: "Bearer " + token
-    },
-    body: formData
-  });
-
-  const data = await res.json();
-
-  if (res.ok) {
-    alert("Artwork uploaded 🎨");
-    window.location.href = "gallery.html";
-  } else if (res.status === 401) {
-    localStorage.removeItem("token");
-    localStorage.removeItem("role");
-    alert(data.message || "Session expired. Please login again.");
-    window.location.href = "login.html";
-  } else {
-    alert(data.message || "Upload failed");
-  }
-}
-
 /* =========================================
    LOGOUT
 ========================================= */
@@ -1124,3 +1101,49 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+const form = document.getElementById("uploadForm");
+
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const token = (localStorage.getItem("token") || "").trim();
+
+    if (!token) {
+      alert("Please login first");
+      return;
+    }
+
+    const formData = new FormData();
+
+    formData.append("title", document.getElementById("title").value);
+    formData.append("description", document.getElementById("description").value);
+    formData.append("price", document.getElementById("price").value);
+    formData.append("category", document.getElementById("category").value);
+    formData.append("image", document.getElementById("image").files[0]);
+
+    try {
+      const res = await fetch("http://a66919e7d3a0647418388dcf9af6f7d7-388382595.ap-south-1.elb.amazonaws.com/api/artworks", {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + token
+        },
+        body: formData,
+      });
+
+      const data = await res.json();
+      console.log(data);
+
+      if (res.ok) {
+        alert("Artwork uploaded 🎉");
+        window.location.href = "gallery.html";
+      } else {
+        alert(data.message || "Upload failed");
+      }
+
+    } catch (err) {
+      console.error(err);
+      alert("Server error");
+    }
+  });
+}

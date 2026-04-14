@@ -25,7 +25,7 @@
   </div>
 </nav>
 
-<div class="form-container">
+<form id="uploadForm" class="form-container">
   <h2>Upload Artwork</h2>
 
   <input type="text" id="title" placeholder="Title" required>
@@ -47,10 +47,10 @@
     <option value="Landscape">Landscape</option>
   </select>
 
-  <button class="upload-btn" onclick="uploadArtwork()">
+  <button type="submit" class="upload-btn">
     Upload Artwork
   </button>
-</div>
+</form>
 
 
 <script src="js/main.js"></script>
